@@ -18,7 +18,7 @@ redisClient.on("error", (err) => {
 
 redisClient.connect();
 
-app.get("/", async (req: any, res: any) => {
+app.get("/api", async (req: any, res: any) => {
   function transpose(matrix: any) {
     return matrix[0].map((col: any, i: number) =>
       matrix.map((row: any) => row[i])
