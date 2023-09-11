@@ -24,7 +24,10 @@ app.get("/api", async (req: any, res: any) => {
       matrix.map((row: any) => row[i])
     );
   }
-  const { sheet } = req.query;
+  let { sheet } = req.query;
+  if (sheet === undefined) {
+    sheet = "15lldKBTIAAzgKlg7SizMCJkx68OVyOiMlRonJJsHq5o";
+  }
   const cacheKey = `sheet:${sheet}`; // Create a unique cache key
 
   let exists = (await redisClient.exists(cacheKey)) == 1;
